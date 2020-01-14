@@ -6,12 +6,14 @@ Login Here
 
 
 {% block content %}
-
+	
      <form action="" method="post" class="from-group">
+	<center>
 	{% csrf_token %}
 	{{form}}
 	<p>Don't have an accoount? Create one <a href="/register">here</a></p>
 	<button type="submit" class="btn btn-success">Login</button>	
-    </form>
+</center>   
+ </form>
 
 {% endblock %}

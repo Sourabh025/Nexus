@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from register import views as v
 from home import views as h
-
+from userprofile import views as p
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/',v.registration,name ='register'),
+    path('',v.registration,name ='register'),
+    path('',v.registration,name='register1'),
     path('home/',h.home,name='home'),
+    path('profile/',p.profile,name='profile'),
     path('',include("django.contrib.auth.urls")),
+
 ]
