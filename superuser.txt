@@ -1,2 +1,5 @@
 name=sourabh 
 password=a********r
+
+name=admin	
+password=a********r

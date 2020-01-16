@@ -130,6 +130,6 @@ STATIC_ROOT=    os.path.join(BASE_DIR, 'boot'), #bootstrap
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL="/home"
-
-LOGOUT_REDIRECT_URL="/login"
+LOGIN_REDIRECT_URL="/home/"
+#always use ' /url/ '
+LOGOUT_REDIRECT_URL="/"
