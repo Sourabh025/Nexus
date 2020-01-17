@@ -18,12 +18,21 @@ from django.urls import path,include
 from register import views as v
 from home import views as h
 from userprofile import views as p
+from register import views as pr
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.registration,name ='register'),
-    #path('',v.registration,name='register1')'''
+    #path('',v.registration,name='register1'),
     path('home/',h.home,name='home'),
-    path('profile/',p.profile,name='profile'),
+    #path('profile/',pr.ProfileUpdateView,name='profile'),  # wrong way to import class this will genrate an error because we are importing class as a function
     path('',include("django.contrib.auth.urls")),
-
+    path('profile/', pr.ProfileUpdateView.as_view(), name='home') #always import class based view as it. other wise it will give error that one extra argument given
 ]
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

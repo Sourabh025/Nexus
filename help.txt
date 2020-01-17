@@ -1,3 +1,7 @@
 for login and signup page html templates always store them in a registration folder inside templates directory (projectname/templates/registration) 
 
 this will genrates error template not found at registration/login
+
+--------------------------------------------------------------------------
+add profile and extend usermodel follow(studygyan website) and its youtube professional cipher
+--------------------------------------------------------------------------

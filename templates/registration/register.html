@@ -1,13 +1,13 @@
-
+{% extends 'home.html' %}
 
 <h1> Welcome to Nexus Where future begins</h1>
 <h2>Signup for Nexus</h2>
 
- <form action="home/" method="POST" class="form-group">
+ <form action="" method="POST" class="form-group">
      {% csrf_token %}
      <table>
 
-     {{ form.as_p }}
+     {{ form}}  
 
      </table>
      <button type="submit">Sign up</button>
