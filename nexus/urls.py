@@ -26,7 +26,8 @@ urlpatterns = [
     path('home/',h.home,name='home'),
     #path('profile/',pr.ProfileUpdateView,name='profile'),  # wrong way to import class this will genrate an error because we are importing class as a function
     path('',include("django.contrib.auth.urls")),
-    path('profile/', pr.ProfileUpdateView.as_view(), name='home') #always import class based view as it. other wise it will give error that one extra argument given
+    path('profile_update/', pr.ProfileUpdateView.as_view(), name='phome'), #always import class based view as it. other wise it will give error that one extra argument given
+    path('profile/', pr.ProfileView.as_view(), name='prhome')
 ]
 
 

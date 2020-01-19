@@ -1,0 +1,16 @@
+
+
+{% load staticfiles %}
+
+
+{% block body_block %}
+        {% if user.is_authenticated %}
+        <h1>{{ user.username }} welcome to your profile page</h1>
+        <img src="{{ user.profile.profile_image.url }}" width = "150" height = "150"  />
+        <h2>{{ user.first_name }}</h2>
+        <h2>{{ user.last_name }}</h2>
+        <h2>{{ user.profile.location }}</h2>
+	<h2>{{ user.email }}</h2>
+        {% endif %}
+
+{% endblock %}

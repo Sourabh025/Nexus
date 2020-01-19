@@ -1,12 +1,17 @@
 
-
+{% extends 'home.html' %}
 
 {% block content %}
 	
-  <form method="post">
+  <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
+
+  <!--here i am using user_form and profile_form because these two are different classes in models-->
+
+  {{ user_form.as_p }} <!--user_form is a variable returned(rendered from register views with profile_update.html(this) template)-->
+
+  {{ profile_form.as_p}} <!--profile_form is a variable returned(rendered from register views with profile_update.html(this) template)-->
+
   <button type="submit">Save changes</button>
 </form> 
 
