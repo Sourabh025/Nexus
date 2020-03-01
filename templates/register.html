@@ -1,20 +1,76 @@
 
+<html>
+<head>
+	
+<style type="text/css">
+	
+.header{
 
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background: #FFF;
+
+
+}
+
+.header2{
+
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background: #FFF;
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+</head>
+
+
+<div class="header">
 <h1> Welcome to Nexus Where future begins</h1>
+</div>
+
+<div class="header2">
 <h2>Signup for Nexus</h2>
+</div>
 
- <form action="" method="POST" class="form-group">
-     {% csrf_token %}
-     <table>
+ <form action="" method="POST" >
+     
+    {% csrf_token %}
+    {% load crispy_forms_tags %}
+    
+    {{form.username.help_text}}   
+    {{form.password1.help_text}}
+    {{form.password2.help_text}}
+    <!--to just add one field from a model--->
+    
+    <!--{{form|crispy}}  --> 
 
-     {{ form.as_p}}
-
-     </table>
      <button type="submit">Sign up</button>
 
  </form>
-{% block content %}
-   {% endblock %}
 
 
 </head>

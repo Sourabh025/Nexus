@@ -8,30 +8,28 @@ from django.http import HttpResponseRedirect
 
 from django.contrib.auth.mixins import LoginRequiredMixin   #--- this mixins required to check if user is logged in or not---
 
-from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib import messages
 
 from .forms import ProfileForm,UserForm  #--- import feilds from forms.py to used in templates forms---
 
 from django.contrib.auth.models import  User
-
+from .forms import reg
 from userprofile.models import profile  #--- importing from userprofile app model to here---
-
 from django.views.generic import TemplateView, CreateView
 
 # Create your views here.
 
 def registration(request):
-
+    print("check1")
     if request.method=="POST":
-        form=UserCreationForm(request.POST)
+        form=reg(request.POST)
         if form.is_valid():
             form.save()
         return  redirect('login')
     else:
-        form=UserCreationForm()
-    return render(request,"register.html",{"form": form})
+        form=reg()
+    return render(request,"reg.html",{"form": form})
 
 #profile functionality starts from here
 
@@ -55,7 +53,7 @@ class ProfileUpdateView(LoginRequiredMixin,TemplateView):
         if profile_form.is_valid() and user_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Your profile successfully updated!')
             return render(request,'Profile.html')#after submit button user will be redirected to his newly updated profile
         #context will always run 
         else:

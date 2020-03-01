@@ -3,14 +3,25 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from userprofile.models import profile  # import profile model from userprofile
 
-class registration(UserCreationForm):
+class reg(UserCreationForm):
     first_name=forms.CharField()
     last_name=forms.CharField()
     email=forms.EmailField()
 
+
+
+    #constructor used to remove help text from the signup page
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
+
     class Meta:
         model=User
         fields=["username","first_name","last_name","email","password1","password2"]
+        
+
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -21,6 +32,16 @@ class UserForm(forms.ModelForm):
             'last_name',
             'email',
         ]
+        help_texts={
+
+            'username' : "",
+            'first_name' : "",
+            'last_name': "",
+            'email':"",
+            
+
+
+        }
 
 #extending profile model
 
