@@ -4,6 +4,8 @@ import os
 import sys
 
 
+#main file to execute app
+
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nexus.settings')
     try:
