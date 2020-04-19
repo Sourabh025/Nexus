@@ -1,0 +1,23 @@
+
+{% load static %}
+
+{% load crispy_forms_tags %} 
+
+{% block content %}
+    <!-- Begin Page Content -->
+	   
+
+        <!-- Page Heading -->
+       
+       
+
+        <!-- Main Content Here -->
+         <img src="{{user.profile.profile_image.url}}" class="rounded float-right" height="300px" width="300px">
+                <h1>{{user.first_name}} {{user.last_name}}</h1>
+                <p><strong>Email: </strong> {{user.username}} </p>
+                <p><strong>Email: </strong> {{user.email}} </p>
+                <p><strong>Bio: </strong> {{user.profile.bio}} </p>
+                <p><strong>Phone Number: </strong> {{user.profile.phone_number}} </p>
+                <p><strong>DOB: </strong> {{user.profile.birth_date}} </p>
+                         
+{% endblock content %}

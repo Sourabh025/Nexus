@@ -9,7 +9,6 @@ class reg(UserCreationForm):
     email=forms.EmailField()
 
 
-
     #constructor used to remove help text from the signup page
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)

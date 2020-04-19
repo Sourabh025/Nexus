@@ -14,16 +14,17 @@ from django.contrib import messages
 from .forms import ProfileForm,UserForm  #--- import feilds from forms.py to used in templates forms---
 
 from django.contrib.auth.models import  User
-from .forms import reg
+from .forms import reg   # reg is used to import form.py 
 from userprofile.models import profile  #--- importing from userprofile app model to here---
 from django.views.generic import TemplateView, CreateView
 
 # Create your views here.
+# we are using form.py not usercreationform 
 
 def registration(request):
     print("check1")
     if request.method=="POST":
-        form=reg(request.POST)
+        form=reg(request.POST)  #using reg form  forms.py 
         if form.is_valid():
             form.save()
         return  redirect('login')
@@ -34,7 +35,7 @@ def registration(request):
 #profile functionality starts from here
 
 class ProfileView(LoginRequiredMixin, TemplateView):  #this will render profile of user onlyif user is loggedin 
-    template_name='Profile.html'
+    template_name='profile.html'
 
 #if user is logged in then this class render profile_update form if he wants to edit his/her profile 
 class ProfileUpdateView(LoginRequiredMixin,TemplateView):
@@ -54,7 +55,7 @@ class ProfileUpdateView(LoginRequiredMixin,TemplateView):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile successfully updated!')
-            return render(request,'Profile.html')#after submit button user will be redirected to his newly updated profile
+            return render(request,'profile.html')#after submit button user will be redirected to his newly updated profile
         #context will always run 
         else:
             messages.success(request,'sorry some error occured')
